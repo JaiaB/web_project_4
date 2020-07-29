@@ -1,0 +1,20 @@
+@import url('./__items/profile__items.css');
+@import url('./__avatar/profile__avatar.css');
+@import url('./__info/profile__info.css');
+@import url('./__name/profile__name.css');
+@import url('./__button/profile__button.css');
+@import url('./__button/_edit/profile__button_edit.css');
+@import url('./__button/_add/profile__button_add.css');
+@import url('./__description/profile__description.css');
+
+.profile {
+  margin-bottom: 50px;
+}
+
+@media(max-width:639px) {
+  .profile {
+    margin-bottom: 36px;
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}

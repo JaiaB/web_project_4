@@ -1,0 +1,18 @@
+.body__container {
+  max-width: 882px;
+  margin: 0 auto;
+}
+
+@media(max-width: 979px) {
+  .body__container {
+    max-width: 584px;
+    margin: 0 auto;
+  }
+}
+
+@media(max-width: 639px) {
+  .body__container {
+    max-width: 320px;
+    box-sizing: border-box;
+  }
+}

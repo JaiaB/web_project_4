@@ -1,0 +1,14 @@
+@import url('./__items/form__items.css');
+@import url('./__content/form__content.css');
+@import url('./__title/form__title.css');
+@import url('./__input/form__input.css');
+@import url('./__button/form__button.css');
+
+.form {
+  background: white;
+  border-radius: 10px;
+  width: 430px;
+  height: 330px;
+  margin-top: 40px;
+  overflow: hidden;
+}

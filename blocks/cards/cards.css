@@ -1,0 +1,14 @@
+@import url('./__gallery/cards__gallery.css');
+@import url('./__gallery-item/cards__gallery-item.css');
+@import url('./__description-placeholder/cards__description-placeholder.css');
+@import url('./__text/cards__text.css');
+
+.cards {
+  margin-bottom: 66px;
+}
+
+@media (max-width: 639px)  {
+  .cards {
+    margin-bottom: 0;
+  }
+}

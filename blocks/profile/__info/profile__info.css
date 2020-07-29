@@ -1,0 +1,21 @@
+.profile__info { /*Container for name, description and edit button*/
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 582px;
+}
+
+@media(max-width: 979px) {
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 428px;
+  }
+}
+
+@media(max-width: 639px) {
+  .profile__info {
+    width: 282px;
+    justify-content: center;
+  }
+}

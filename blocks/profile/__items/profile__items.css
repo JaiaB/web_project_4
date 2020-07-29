@@ -1,0 +1,17 @@
+.profile__items {/*Contains all profile items*/
+  display: flex;
+  align-items: center;
+}
+
+@media(max-width: 979px) {
+  .profile__items {
+    flex-wrap: wrap;
+  }
+}
+
+@media(max-width: 639px) {
+  .profile__items {
+    justify-content: center;
+    text-align: center;
+  }
+}

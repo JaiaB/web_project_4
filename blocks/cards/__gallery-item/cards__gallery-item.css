@@ -1,0 +1,15 @@
+.cards__gallery-item {
+  width: 282px;
+  height: 361px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+}
+
+@media(max-width: 639px) {
+  .cards__gallery-item {
+    margin-bottom: 20px;
+  }
+}

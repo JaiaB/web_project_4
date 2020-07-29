@@ -1,0 +1,27 @@
+.cards__gallery {
+  list-style: none;
+  max-width: 882px;
+  margin: auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 20px;
+  column-gap: 18px;
+}
+
+@media (max-width: 979px) {
+  .cards__gallery {
+    grid-template-columns: repeat(2, 282px);
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 582px;
+    margin: 0 auto;
+  }
+}
+
+@media(max-width: 639px) {
+  .cards__gallery {
+    display: block;
+    max-width: 282px;
+  }
+}

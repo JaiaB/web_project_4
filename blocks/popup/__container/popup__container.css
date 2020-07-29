@@ -1,0 +1,11 @@
+.popup__container {
+  display: flex;
+  justify-content: center;
+  padding-top: 148px;
+}
+
+@media (max-width: 639px)  {
+  .popup__container {
+    padding-top: 120px;
+  }
+}

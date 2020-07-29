@@ -1,0 +1,13 @@
+@import url('./__copyright/footer__copyright.css');
+
+.footer {
+  margin-bottom: 60px;
+}
+
+@media(max-width: 639px) {
+  .footer {
+    margin: 28px 19px 36px 19px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
