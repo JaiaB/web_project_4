@@ -11,7 +11,7 @@
   }
 }
 
-@media(max-widht: 639px) {
+@media(max-width: 639px) {
   .profile__avatar {
     margin: 0 auto;
   }
