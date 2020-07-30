@@ -2,6 +2,7 @@
 @import url('./__gallery-item/cards__gallery-item.css');
 @import url('./__description-placeholder/cards__description-placeholder.css');
 @import url('./__text/cards__text.css');
+@import url('./__button/cards__button.css');
 
 .cards {
   margin-bottom: 66px;

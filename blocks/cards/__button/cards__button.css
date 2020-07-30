@@ -1,0 +1,9 @@
+.cards__button {
+  background-image: url('../../../images/heart.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  width: 21px;
+  height: 19px;
+}

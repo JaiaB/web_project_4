@@ -5,7 +5,7 @@
   border-radius: 10px;
   overflow: hidden;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
 }
 
 @media(max-width: 639px) {
