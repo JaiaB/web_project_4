@@ -7,8 +7,9 @@
 
 @media(max-width: 639px) {
   .footer__copyright {
-    max-width: 230px;
+    max-width: 100%;
     font-size: 14px;
     line-height: 17px;
+    text-align: center;
   }
 }
