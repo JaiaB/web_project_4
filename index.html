@@ -6,7 +6,6 @@
   <meta name="description" content="Javascript">
   <link rel="stylesheet" href="./pages/index.css">
   <link rel="preload" href="./vendor/fonts/inter-400.woff2" as="font"  type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./vendor/fonts/inter-font.css" type="text/css">
   <title>Around The World</title>
 </head>
 <body class="body">
@@ -26,67 +25,48 @@
           <button class="profile__button profile__button_add"></button>
         </div>
       </section>
-      <div class="popup popup_opened">
-        <div class="popup__container">
-          <form action="" class="form">
-            <ul class="form__items">
-              <li class="form__content">
-                <h2 class="form__title">Edit profile</h2>
-              </li>
-              <li class="form__content">
-                <input type="text" class="form__input form__input_type_name" placeholder="Name"></input>
-              </li>
-              <li class="form__content">
-                <input type="text" class="form__input form__input_type_description" placeholder="About me"></input>
-              </li>
-              <button type="submit"  class="form__button">Save</button>
-            </ul>
-          </form>
-          <button class="popup__close-button"></button>
-        </div>
-      </div>
       <section class="cards">
         <ul class="cards__gallery">
           <li class="cards__gallery-item">
-            <img src="./images/Yosemite.jpg" alt="Yosemite Valley" class="cards__photo">
+            <img src="./images/Yosemite.jpg" alt="Yosemite Valley">
             <div class="cards__description-placeholder">
               <h2 class="cards__text">Yosemite Valley</h2>
-              <img src="./images/heart-icon.svg" alt="heart icon" class="cards__heart-icon">
+              <button class="cards__button"></button>
             </div>
           </li>
           <li class="cards__gallery-item">
-            <img src="./images/Lake-Louise.jpg" alt="Lake Louise" class="cards__photo">
+            <img src="./images/Lake-Louise.jpg" alt="Lake Louise">
             <div class="cards__description-placeholder">
               <h2 class="cards__text">Lake Louise</h2>
-              <img src="./images/heart-icon.svg" alt="heart icon" class="cards__heart-icon">
+              <button class="cards__button"></button>
             </div>
           </li>
           <li class="cards__gallery-item">
-            <img src="./images/Bald-Mountains.jpg" alt="Bald Mountains" class="cards__photo">
+            <img src="./images/Bald-Mountains.jpg" alt="Bald Mountains">
             <div class="cards__description-placeholder">
               <h2 class="cards__text">Bald Mountains</h2>
-              <img src="./images/heart-icon.svg" alt="heart icon" class="cards__heart-icon">
+              <button class="cards__button"></button>
             </div>
           </li>
           <li class="cards__gallery-item">
-            <img src="./images/Latemar.jpg" alt="Latemar" class="cards__photo">
+            <img src="./images/Latemar.jpg" alt="Latemar">
             <div class="cards__description-placeholder">
               <h2 class="cards__text">Latemar</h2>
-             <img src="./images/heart-icon.svg" alt="heart icon" class="cards__heart-icon">
+              <button class="cards__button"></button>
             </div>
           </li>
           <li class="cards__gallery-item">
-            <img src="./images/National-Park.jpg" alt="Vanoise National Park" class="cards__photo">
+            <img src="./images/National-Park.jpg" alt="Vanoise National Park">
             <div class="cards__description-placeholder">
               <h2 class="cards__text">Vanoise National Park</h2>
-              <img src="./images/heart-icon.svg" alt="heart icon" class="cards__heart-icon">
+              <button class="cards__button"></button>
             </div>
           </li>
           <li class="cards__gallery-item">
-            <img src="./images/Lago-di-Braies.jpg" alt="Lago di Braies" class="cards__photo">
+            <img src="./images/Lago-di-Braies.jpg" alt="Lago di Braies">
             <div class="cards__description-placeholder">
               <h2 class="cards__text">Lago di Braies</h2>
-             <img src="./images/heart-icon.svg" alt="heart icon" class="cards__heart-icon">
+              <button class="cards__button"></button>
             </div> 
           </li>
         </ul>
@@ -98,6 +78,25 @@
         <p class="footer__copyright">Jaia Bautista</p>
       </div>
     </footer>
+  </div>
+  <div class="popup popup_opened">
+    <div class="popup__container">
+      <form action="" class="form">
+        <ul class="form__items">
+          <li class="form__content">
+            <p class="form__title">Edit profile</p>
+          </li>
+          <li class="form__content">
+            <input type="text" class="form__input form__input_type_name" placeholder="Name">
+          </li>
+          <li class="form__content">
+            <input type="text" class="form__input form__input_type_description" placeholder="About me">
+          </li>
+          <button type="submit"  class="form__button">Save</button>
+        </ul>
+      </form>
+      <button class="popup__close-button"></button>
+    </div>
   </div>
   <script src="./scripts/index.js"></script>
 </body>
