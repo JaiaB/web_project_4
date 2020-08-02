@@ -9,6 +9,9 @@ const profileDescription = document.querySelector('.profile__description');
 
 function togglePopup () {
   popup.classList.toggle('popup_opened');
+}
+
+function getUpdatedInfo () {
   formName.value = profileName.textContent;
   formDescription.value = profileDescription.textContent;
 }
@@ -21,4 +24,5 @@ form.addEventListener('submit', function(e) {
   profileName.textContent = formName.value;
   profileDescription.textContent = formDescription.value;
   togglePopup()
+  getUpdatedInfo()
 })

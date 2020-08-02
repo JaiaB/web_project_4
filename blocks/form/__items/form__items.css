@@ -1,12 +1,8 @@
 .form__items { /*corresponds to the ul tag*/
-  margin: 0;
-  padding: 34px 36px 36px 36px;
+  margin: 0 auto;
+  padding-top: 20px;
   width: 100%;
   box-sizing: border-box;
+  padding-inline-start: 0;
 }
 
-@media(max-width: 639px) {
-  .form__items {
-    padding: 30px;
-  }
-}
