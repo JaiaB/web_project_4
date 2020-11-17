@@ -57,18 +57,26 @@ const initialCards = [
 
 const cardTemplate = document.querySelector(".card-template").content.querySelector(".cards__gallery-item");
 const gallery = document.querySelector(".cards__gallery");
+
 initialCards.forEach(data => {
-  //*this second variable is the one we will use to clone an empty card and the contents
   const cardElement = cardTemplate.cloneNode(true);
-  //*now we add the dynamic elements and add the delete button
   const cardImage = cardElement.querySelector(".cards__image");
   const cardTitle = cardElement.querySelector(".cards__text");
   const cardLikeButton = cardElement.querySelector(".cards__button_like");
   const cardDeleteButton = cardElement.querySelector(".cards__button_delete");
-  //*over here we start working with the data from the objects
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
   //*cardImage.style.backgroundImage=`url(${data.link})`;
   cardLikeButton.addEventListener('click', () => {
   });
   
+  cardDeleteButton.addEventListener('click', () => {
+    //handlerCardDeleteClick()
+  });
+  
+  cardImage.addEventListener('click', ()=> {
+    //open modal
+  });
+  
+  gallery.prepend(cardElement); 
+  });
