@@ -1,5 +1,5 @@
-.profile__button_edit {
-  background-image: url('../../../../images/edit-icon.svg');
+.button_edit {
+  background-image: url('../../../images/edit-icon.svg');
   width: 24px;
   height: 24px;
   border: solid 1px white;
@@ -9,13 +9,13 @@
 }
 
 @media(max-width: 979px) {
-  .profile__button_edit {
+  .button_edit {
     margin: 0;
   }
 }
 
 @media(max-width: 639px) {
-  .profile__button_edit {
+  .button_edit {
     width: 18px;
     height: 18px;
     margin: 0;

@@ -1,10 +1,11 @@
-.cards__button {
-  background-image: url('../../../images/heart.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: none;
-  background-color: transparent;
-  width: 22px;
-  height: 20px;
+@import url('./_delete/cards__button_delete.css');
+@import url('./_like/cards__button_like.css');
+
+.cards__button{
+  cursor: pointer;
+  transition: opacity linear 0.2s;
+}
+
+.cards__button:hover {
+  opacity: 0.6;
 }

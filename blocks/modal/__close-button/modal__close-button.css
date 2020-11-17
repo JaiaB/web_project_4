@@ -1,4 +1,4 @@
-.popup__close-button {
+.modal__close-button {
   background-image: url('../../../images/close-icon.svg'); 
   background-repeat: no-repeat;
   background-position: center;
@@ -12,6 +12,6 @@
   transition: opacity linear 0.2s;
 }
 
-.popup__close-button:hover {
+.modal__close-button:hover {
   opacity: 0.6;
 }
