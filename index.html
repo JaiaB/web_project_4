@@ -19,82 +19,71 @@
           <img src="./images/avatar.jpg" alt="Cousteau avatar" class="profile__avatar">
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="profile__button profile__button_edit"></button>
+            <button class="button button_edit"></button>
             <p class="profile__description">Explorer</p>
           </div>  
-          <button class="profile__button profile__button_add"></button>
+          <button class="button button_add"></button>
         </div>
       </section>
       <section class="cards">
-        <ul class="cards__gallery">
-          <li class="cards__gallery-item">
-            <img src="./images/Yosemite.jpg" alt="Yosemite Valley">
-            <div class="cards__description-placeholder">
-              <h2 class="cards__text">Yosemite Valley</h2>
-              <button class="cards__button"></button>
-            </div>
-          </li>
-          <li class="cards__gallery-item">
-            <img src="./images/Lake-Louise.jpg" alt="Lake Louise">
-            <div class="cards__description-placeholder">
-              <h2 class="cards__text">Lake Louise</h2>
-              <button class="cards__button"></button>
-            </div>
-          </li>
-          <li class="cards__gallery-item">
-            <img src="./images/Bald-Mountains.jpg" alt="Bald Mountains">
-            <div class="cards__description-placeholder">
-              <h2 class="cards__text">Bald Mountains</h2>
-              <button class="cards__button"></button>
-            </div>
-          </li>
-          <li class="cards__gallery-item">
-            <img src="./images/Latemar.jpg" alt="Latemar">
-            <div class="cards__description-placeholder">
-              <h2 class="cards__text">Latemar</h2>
-              <button class="cards__button"></button>
-            </div>
-          </li>
-          <li class="cards__gallery-item">
-            <img src="./images/National-Park.jpg" alt="Vanoise National Park">
-            <div class="cards__description-placeholder">
-              <h2 class="cards__text">Vanoise National Park</h2>
-              <button class="cards__button"></button>
-            </div>
-          </li>
-          <li class="cards__gallery-item">
-            <img src="./images/Lago-di-Braies.jpg" alt="Lago di Braies">
-            <div class="cards__description-placeholder">
-              <h2 class="cards__text">Lago di Braies</h2>
-              <button class="cards__button"></button>
-            </div> 
-          </li>
-        </ul>
+        <ul class="cards__gallery"></ul>
       </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Around The U.S, by Jaia Bautista</p>
     </footer>
   </div>
-  <div class="popup popup_opened">
-    <div class="popup__container">
+  <!--Edit profile info modal-->
+  <div class="modal modal__open modal__open_edit">
+    <div class="modal__container">
       <form action="#" class="form">
         <div class="form__wrapper">
           <p class="form__title">Edit profile</p>
           <ul class="form__items">
             <li class="form__content">
-              <input type="text" class="form__input form__input_type_name" placeholder="Name">
+              <input type="text"  name="name" class="form__input form__input_type_name" placeholder="Name">
             </li>
             <li class="form__content">
-              <input type="text" class="form__input form__input_type_description" placeholder="About me">
+              <input type="text" name="about" class="form__input form__input_type_description" placeholder="About me">
             </li>
           </ul>
           <button type="submit"  class="form__button">Save</button>
         </div>
       </form>
-      <button class="popup__close-button"></button>
+      <button type="button" class="modal__close-button"></button>
     </div>
   </div>
+<!--Add new image modal-->
+  <div class="modal modal__open modal__open_new-card">
+    <div class="modal__container">
+      <form action="#" class="form" name="new">
+        <div class="form__wrapper">
+          <p class="form__title">New place</p>
+          <ul class="form__items">
+            <li class="form__content">
+              <input type="text" name="place" class="form__input form__input_type_card-title" placeholder="Title">
+            </li>
+            <li class="form__content">
+              <input type="url" name="description" class="form__input form__input_type_url" placeholder="Image Link">
+            </li>
+          </ul>
+          <button type="submit"  class="form__button">Create</button>
+        </div>
+      </form>
+      <button type="button" class="modal__close-button"></button>
+    </div>
+  </div>
+  <template class="card-template">
+    <li class="cards__gallery-item">
+      <button type="button" class="cards__button cards__button_delete"></button>
+      <!--<div class="cards__image" style=""></div>-->
+      <img class="cards__image" src="">
+      <div class="cards__description-placeholder">
+        <h2 class="cards__text"></h2>
+        <button type="button" class="cards__button cards__button_like"></button>
+      </div> 
+    </li>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
