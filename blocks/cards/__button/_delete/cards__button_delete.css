@@ -9,5 +9,6 @@
   height: 20px;
   position: absolute;
   align-self: flex-end;
-  margin:19px  -15px;
+  margin-top: 19px ;
+  margin-right: 15px;
 }
