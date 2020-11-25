@@ -71,12 +71,15 @@ initialCards.forEach(data => {
 const cardElement = cardTemplate.cloneNode(true);
 const cardImage = cardElement.querySelector(".cards__image");
 const cardTitle = cardElement.querySelector(".cards__text");
-const cardLikeButton = cardElement.querySelector(".cards__button_like");
+const cardLikeButton = cardElement.querySelector(".cards__button_like_inactive");
 const cardDeleteButton = cardElement.querySelector(".cards__button_delete");
 cardTitle.textContent = data.name;
 cardImage.src = data.link;
+
 //*cardImage.style.backgroundImage=`url(${data.link})`;
-cardLikeButton.addEventListener('click', () => {
+
+cardLikeButton.addEventListener('click', (event)=> {
+  event.target.classList.toggle('cards__button_like_active');
 });
 
 cardDeleteButton.addEventListener('click', () => {
