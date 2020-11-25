@@ -1,5 +1,6 @@
 @import url('./_delete/cards__button_delete.css');
-@import url('./_like/cards__button_like.css');
+@import url('./_like/cards__button_like_inactive.css');
+@import url('./_like/cards__button_like_active.css');
 
 .cards__button{
   cursor: pointer;
@@ -8,4 +9,8 @@
 
 .cards__button:hover {
   opacity: 0.6;
+}
+
+.cards__button:focus {
+  outline:none;
 }
