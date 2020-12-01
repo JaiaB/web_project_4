@@ -1,3 +1,5 @@
+@import url('./_open-image/modal__container_open-image.css');
+
 .modal__container {
   display: flex;
   justify-content: center;
@@ -8,5 +10,6 @@
   .modal__container {
     padding-top: 120px;
     padding-left: 30px;
+    padding-right: 30px;
   }
 }
