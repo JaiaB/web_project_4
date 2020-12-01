@@ -1,3 +1,9 @@
 .form__wrapper {
   padding: 34px 36px 36px 36px;
 }
+
+@media(max-width: 320px){
+  .form__wrapper{
+    padding: 25px 19px 25px 19px;
+  }
+}
