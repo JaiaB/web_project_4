@@ -13,3 +13,10 @@
   margin-top: 40px;
   overflow: hidden;
 }
+
+@media (max-width:320px){
+  .form{
+    width: 282px;
+    height: 322px;
+  }
+}
