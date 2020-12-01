@@ -8,3 +8,10 @@
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
+@media(max-width: 320px){
+  .form__title {
+    font-size:18px;
+    line-height: 22px;
+  }
+}
