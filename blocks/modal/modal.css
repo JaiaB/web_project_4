@@ -3,6 +3,7 @@
 @import url('./__open/modal__open.css');
 @import url('./__image/modal__image.css');
 @import url('./__open-image/modal__open-image.css');
+@import url('./__figure/modal__figure.css');
 .modal {
   width: 100%;
   height: 100%;
