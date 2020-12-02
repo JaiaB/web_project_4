@@ -8,8 +8,8 @@
 
 @media (max-width: 639px)  {
   .modal__container {
-    padding-top: 120px;
+    /*position: absolute;*/
     padding-left: 30px;
-    padding-right: 30px;
+    padding-right: 10px;
   }
 }
