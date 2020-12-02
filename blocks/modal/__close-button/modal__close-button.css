@@ -8,7 +8,9 @@
   padding: 0;
   border: none;
   cursor: pointer;
-  align-self: flex-start;
+  position: relative;
+  top: 0px;
+  right: 0px;
   transition: opacity linear 0.2s;
 }
 
