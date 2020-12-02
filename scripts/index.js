@@ -2,7 +2,7 @@
 const modal = document.querySelector ('.modal');
 const form = document.querySelector ('.form');
 const newCard = document.querySelector('.modal__open_new-card');
-const imageModal = document.querySelector('.modal__open-image')
+const imageModal = document.querySelector('.modal__open-image');
 
 
 //Buttons
