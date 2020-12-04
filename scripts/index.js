@@ -1,7 +1,7 @@
 //Modals
 const modal = document.querySelector ('.modal');
 const form = document.querySelector ('.form');
-const newCard = document.querySelector('.modal__open_new-card');
+const newCardModal = document.querySelector('.modal__open_new-card');
 const imageModal = document.querySelector('.modal__open-image');
 
 
@@ -20,6 +20,11 @@ const profileDescription = document.querySelector('.profile__description');
 const formName = document.querySelector('.form__input_type_name');
 const formDescription = document.querySelector('.form__input_type_description');
 
+//Smooth transition
+function smoothTransition(){
+  modal.oncommand.style.opacity = "1";
+}
+
 //Open modal 
 function toggleModal () {
   modal.classList.toggle('modal__open');
@@ -27,7 +32,7 @@ function toggleModal () {
 
 //Open new card modal
 function toggleAddCard() {
-  newCard.classList.toggle('modal__open');
+  newCardModal.classList.toggle('modal__open');
 }
 
 //Open image modal 
@@ -100,7 +105,7 @@ initialCards.forEach(data => {
   //elements to work with data
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
-  //*cardImage.style.backgroundImage=`url(${data.link})`;
+  //*cardImage.style.backgroundImage=`url(${data.link})`; if i use a div for the image instead of the img tag
   
   cardLikeButton.addEventListener('click', (event)=> {
     event.target.classList.toggle('cards__button_like_active');
