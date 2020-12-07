@@ -1,6 +1,6 @@
 .cards__image {
-  background-position: center;
-  background-size: cover;
+  object-position: center;
+  object-fit: cover;
   background-repeat: no-repeat;
   height: 282px;
   width: 282px;
