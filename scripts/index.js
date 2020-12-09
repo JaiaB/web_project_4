@@ -1,6 +1,5 @@
 //Modals
-const modal = document.querySelector(".modal");
-const form = document.querySelector(".form");
+const profileModal = document.querySelector(".modal__open_edit");
 const newCardModal = document.querySelector(".modal__open_new-card");
 const imageModal = document.querySelector(".modal__open-image");
 const profileForm = document.querySelector(".form_profile");
@@ -21,8 +20,8 @@ const formName = form.querySelector(".form__input_type_name");
 const formDescription = form.querySelector(".form__input_type_description");
 
 //Open modal 
-function toggleModal() {
-  modal.classList.toggle('modal__open');
+function toggleProfileModal() {
+  profileModal.classList.toggle('modal__open');
 }
 
 //Open new card modal
@@ -35,9 +34,10 @@ function openImageModal() {
   imageModal.classList.toggle('modal__open');
 }
 
-//Buttons functionality global scope
-editProfileButton.addEventListener('click', toggleModal)
-closeFormButton.addEventListener('click', toggleModal)
+//Buttons Functions
+editProfileButton.addEventListener('click', toggleProfileModal)
+editProfileButton.addEventListener('click', getUpdatedInfo)
+closeFormButton.addEventListener('click', toggleProfileModal)
 addCardButton.addEventListener('click', toggleAddCard)
 closeAddCardButton.addEventListener('click', toggleAddCard)
 closeImageModalButton.addEventListener('click', openImageModal)
@@ -124,19 +124,12 @@ function createCard(data){
   //dynamic data that renders image and name of card
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
+  cardImage.alt = data.name;
   
-  cardLikeButton.addEventListener('click', (event) => {
-    event.target.classList.toggle("cards__button_like_active");
-  });
+  cardLikeButton.addEventListener('click', likeCard);
 
-  //Delete card
-  function deleteCard(){
-   gallery.removeChild(cardElement);
- }
-
-  cardDeleteButton.addEventListener('click', () => {
-    deleteCard();
-    //console.log('card was deleted');
+  cardDeleteButton.addEventListener('click', () =>{
+    deleteCard(cardElement);
   });
 
   //open image modal when clicking on the image
@@ -160,3 +153,13 @@ function insertImage(data) {
 initialCards.forEach((data) => {
   insertImage(data);
 });
+
+  //Delete card
+  function deleteCard(cardElement){
+    gallery.removeChild(cardElement);
+  }
+
+  //Like card
+function likeCard(cardElement){
+  cardElement.target.classList.toggle("cards__button_like_active");
+}
