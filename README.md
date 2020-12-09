@@ -17,10 +17,15 @@ The form's behavior is controlled by **JavaScript**,  I used **textContent** pro
 
 ### Second Stage: Turning the JavaScript switch on!
 Users can **add a new image card** with a link of their choosing from the web by clicking on the "Plus" button. Try it out! :white_check_mark:
+
 Cards can get **deleted** :x: 
+
 Cards can get **liked** :heart: and **unliked** :broken_heart:
+
 Image too small? No problem amigo! I gotchu, :raised_hands: click on the image to enlarge. 
+
 The enlarged image is **adaptive** to the screen size
+
 The profile edit, add a card forms and the enlarged image have **smooth transitions** :sunglasses: nothing popping in and out suddenly.
 
 ### Next steps
