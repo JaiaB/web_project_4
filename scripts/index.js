@@ -129,22 +129,15 @@ function createCard(data){
  
   //dynamic data that renders image and name of card 
   cardTitle.textContent = data.name; 
-
   cardImage.src = data.link; 
+  cardImage.alt = data.name;
    
-
-  cardLikeButton.addEventListener('click', (event) => { 
-    event.target.classList.toggle("cards__button_like_active"); 
-  }); 
- 
-  //Delete card 
-
-  function deleteCard(){ 
-   gallery.removeChild(cardElement); 
- } 
- 
+  //Like card
+  cardLikeButton.addEventListener('click', likeCard);   
+  
+ //Delete card callback
   cardDeleteButton.addEventListener('click', () => { 
-    deleteCard(); 
+    deleteCard(cardElement); 
     //console.log('card was deleted'); 
   }); 
  
@@ -158,6 +151,16 @@ function createCard(data){
   }); 
  
   return cardElement; 
+} 
+
+//Like card 
+function likeCard(cardElement){
+  cardElement.target.classList.toggle("cards__button_like_active"); 
+}
+
+//Delete card  
+function deleteCard(cardElement) { 
+  gallery.removeChild(cardElement); 
 } 
 
 //this inserts the created card and initial cards into the gallery DOM 
