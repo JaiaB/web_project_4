@@ -1,5 +1,6 @@
 //Modals 
 const modal = document.querySelector(".modal"); 
+const profileModal = document.querySelector(".modal__open_edit");
 const form = document.querySelector(".form"); 
 const newCardModal = document.querySelector(".modal__open_new-card"); 
 const imageModal = document.querySelector(".modal__open-image"); 
@@ -21,13 +22,12 @@ const formName = form.querySelector(".form__input_type_name");
 const formDescription = form.querySelector(".form__input_type_description"); 
  
 //Open modal  
-function toggleModal() { 
-  modal.classList.toggle('modal__open'); 
+function toggleProfileModal() { 
+  profileModal.classList.toggle('modal__open'); 
 } 
  
 //Open new card modal 
 function toggleAddCard() { 
-
   newCardModal.classList.toggle('modal__open'); 
 } 
  
@@ -37,8 +37,9 @@ function openImageModal() {
 } 
  
 //Buttons functionality global scope 
-editProfileButton.addEventListener('click', toggleModal) 
-closeFormButton.addEventListener('click', toggleModal) 
+editProfileButton.addEventListener('click', toggleProfileModal) 
+editProfileButton.addEventListener('click', getUpdatedInfo)
+closeFormButton.addEventListener('click', toggleProfileModal) 
 addCardButton.addEventListener('click', toggleAddCard) 
 closeAddCardButton.addEventListener('click', toggleAddCard) 
 closeImageModalButton.addEventListener('click', openImageModal) 
