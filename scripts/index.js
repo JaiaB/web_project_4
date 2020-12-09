@@ -1,5 +1,5 @@
 //Modals 
-const modal = document.querySelector(".modal"); 
+const globalModal = document.querySelector(".modal"); 
 const profileModal = document.querySelector(".modal__open_edit");
 const form = document.querySelector(".form"); 
 const newCardModal = document.querySelector(".modal__open_new-card"); 
@@ -21,19 +21,24 @@ const profileDescription = document.querySelector(".profile__description");
 const formName = form.querySelector(".form__input_type_name"); 
 const formDescription = form.querySelector(".form__input_type_description"); 
  
-//Open modal  
+//Open modal (global)
+function openModal(globalModal){
+  globalModal.classList.toggle('modal__open');
+}
+
+//Open profile modal  
 function toggleProfileModal() { 
-  profileModal.classList.toggle('modal__open'); 
+  openModal(profileModal); 
 } 
  
 //Open new card modal 
 function toggleAddCard() { 
-  newCardModal.classList.toggle('modal__open'); 
+  openModal(newCardModal); 
 } 
  
 //Open image modal  
 function openImageModal() { 
-  imageModal.classList.toggle('modal__open'); 
+  openModal(imageModal); 
 } 
  
 //Buttons functionality global scope 
@@ -55,7 +60,7 @@ profileForm.addEventListener('submit', function (e) {
   e.preventDefault(); 
   profileName.textContent = formName.value; 
   profileDescription.textContent = formDescription.value; 
-  toggleModal() 
+  toggleProfileModal() 
   getUpdatedInfo() 
 }); 
  
@@ -134,7 +139,7 @@ function createCard(data){
    
   //Like card
   cardLikeButton.addEventListener('click', likeCard);   
-  
+
  //Delete card callback
   cardDeleteButton.addEventListener('click', () => { 
     deleteCard(cardElement); 
