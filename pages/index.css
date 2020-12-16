@@ -1,5 +1,6 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts/inter-font.css');
+@import url('../blocks/preload/preload.css');
 @import url('../blocks/body/body.css');
 @import url('../blocks/button/button.css');
 @import url('../blocks/cards/cards.css');

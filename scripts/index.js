@@ -1,7 +1,7 @@
 //body__preload class to stop triggering transitions on page load
 window.addEventListener("load", function() {
-  const preload=document.querySelector (".body__preload");
-  preload.classList.remove('body__preload');
+  const preload=document.querySelector (".preload");
+  preload.classList.remove('preload');
 });
 
 //Modals
