@@ -1,5 +1,5 @@
 //body__preload class to stop triggering transitions on page load
-window.addEventListener("load", function(){
+window.addEventListener("load", function() {
   const preload=document.querySelector (".body__preload");
   preload.classList.remove('body__preload');
 });
@@ -93,10 +93,9 @@ function addImageHandler(event){
   cardForm.reset();
 }
 
-//Inserts the created card and initial cards into the gallery DOM
+//this function inserts in the DOM the newCard's image using the values from the image handler
 function insertImage(data) {
   //event listener for addImageHandler
-  //added this after second review
   createCardButton.addEventListener('click', addImageHandler);
   gallery.prepend(createCard(data));
   toggleModal(newCardModal);
@@ -118,26 +117,27 @@ profileForm.addEventListener('submit', function (e) {
   profileName.textContent = formName.value;
   profileDescription.textContent = formDescription.value;
   toggleModal(profileModal);
-  getUpdatedInfo();
 });
 
 //Buttons functionality 
 
-//profile modal open
-editProfileButton.addEventListener('click', ()=> toggleModal(profileModal));
+//profile modal open & refresh profile info using arrow function
+editProfileButton.addEventListener('click', () => {
+  toggleModal(profileModal),  
+  getUpdatedInfo()
+ }
+);
+
 //profile modal close
 closeFormButton.addEventListener('click', ()=> toggleModal(profileModal));
-//refresh profile info
-editProfileButton.addEventListener('click', getUpdatedInfo) //compare with replit
 
 //open add card modal
 addCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+
 //close add card modal
 closeAddCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
 
-//event listener for addImageHandler. 
 //when clicking on "create" button, close the add card modal
-//createCardButton.addEventListener('click', addImageHandler) it was like this after second review, now im taking out just to see
 createCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
 
 //close Image modal button
