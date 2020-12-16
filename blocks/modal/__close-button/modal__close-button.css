@@ -1,7 +1,7 @@
 @import url('./_image-modal/modal__close-button_image-modal.css');
 
 .modal__close-button {
-  background-image: url('../../../images/close-icon.svg'); 
+  background-image: url('../../../images/close-icon.svg');
   background-repeat: no-repeat;
   background-position: center;
   width: 40.7px;
