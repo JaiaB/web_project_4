@@ -1,8 +1,14 @@
+//body__preload class to stop triggering transitions on page load
+window.addEventListener("load", function(){
+  const preload=document.querySelector (".body__preload");
+  preload.classList.remove('body__preload');
+});
+
 //Modals
+const globalModal = document.querySelector(".modal__open");
 const profileModal = document.querySelector(".modal__open_edit");
 const newCardModal = document.querySelector(".modal__open_new-card");
 const imageModal = document.querySelector(".modal__open-image");
-const globalModal = document.querySelector(".modal");
 //elements used when opening image modal
 const modalImage = document.querySelector(".modal__image");
 const modalCaption = document.querySelector(".modal__caption");
@@ -37,27 +43,9 @@ const cardTemplate = document.querySelector(".card-template").content.querySelec
 //gallery will select the element in the DOM where we want to place the dynamic data.
 const gallery = document.querySelector(".cards__gallery");
 
-//Open modal
-function openModal(globalModal){
-  globalModal.classList.toggle('modal__open');
-}
-
-//Open profile modal 
-function toggleProfileModal() {
-  //profileModal.classList.toggle('modal__open');
-  openModal(profileModal);
-}
-
-//Open new card modal
-function toggleAddCard() {
-  //newCardModal.classList.toggle('modal__open');
-  openModal(newCardModal);
-}
-
-//Open image modal 
-function openImageModal() {
-  //imageModal.classList.toggle('modal__open');
-  openModal(imageModal);
+//Toggle global modal
+function toggleModal(globalModal){
+  globalModal.classList.toggle('modal');
 }
 
 //Refresh information in profile section
@@ -91,7 +79,7 @@ function createCard(data){
     modalImage.src = data.link;
     modalCaption.textContent = data.name;
     modalImage.alt = data.name;
-    openImageModal();
+    toggleModal(imageModal);
   });
 
   return cardElement;
@@ -103,13 +91,15 @@ function addImageHandler(event){
   const newCardElement = createCard({name: newCardName.value, link: newCardImageLink.value});
   gallery.prepend(newCardElement);
   cardForm.reset();
-  toggleAddCard();
-  //i had return newCardElement here
 }
 
 //Inserts the created card and initial cards into the gallery DOM
 function insertImage(data) {
+  //event listener for addImageHandler
+  //added this after second review
+  createCardButton.addEventListener('click', addImageHandler);
   gallery.prepend(createCard(data));
+  toggleModal(newCardModal);
 }
 
 //Delete card
@@ -127,19 +117,31 @@ profileForm.addEventListener('submit', function (e) {
   e.preventDefault();
   profileName.textContent = formName.value;
   profileDescription.textContent = formDescription.value;
-  toggleProfileModal()
-  getUpdatedInfo()
+  toggleModal(profileModal);
+  getUpdatedInfo();
 });
 
 //Buttons functionality 
-editProfileButton.addEventListener('click', toggleProfileModal)
-editProfileButton.addEventListener('click',getUpdatedInfo)
-closeFormButton.addEventListener('click', toggleProfileModal)
-addCardButton.addEventListener('click', toggleAddCard)
-closeAddCardButton.addEventListener('click', toggleAddCard)
-closeImageModalButton.addEventListener('click', openImageModal)
+
+//profile modal open
+editProfileButton.addEventListener('click', ()=> toggleModal(profileModal));
+//profile modal close
+closeFormButton.addEventListener('click', ()=> toggleModal(profileModal));
+//refresh profile info
+editProfileButton.addEventListener('click', getUpdatedInfo) //compare with replit
+
+//open add card modal
+addCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+//close add card modal
+closeAddCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+
 //event listener for addImageHandler. 
-createCardButton.addEventListener('click', addImageHandler)
+//when clicking on "create" button, close the add card modal
+//createCardButton.addEventListener('click', addImageHandler) it was like this after second review, now im taking out just to see
+createCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+
+//close Image modal button
+closeImageModalButton.addEventListener('click', ()=> toggleModal(imageModal));
 
 //this function calls the insertImage for every object in the list
 initialCards.forEach((data) => {
