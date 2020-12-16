@@ -5,10 +5,10 @@ window.addEventListener("load", function() {
 });
 
 //Modals
-const globalModal = document.querySelector(".modal__open");
-const profileModal = document.querySelector(".modal__open_edit");
-const newCardModal = document.querySelector(".modal__open_new-card");
-const imageModal = document.querySelector(".modal__open-image");
+const globalModal = document.querySelector(".modal_open");
+const profileModal = document.querySelector(".modal_open_edit");
+const newCardModal = document.querySelector(".modal_open_new-card");
+const imageModal = document.querySelector(".modal_open-image");
 //elements used when opening image modal
 const modalImage = document.querySelector(".modal__image");
 const modalCaption = document.querySelector(".modal__caption");
