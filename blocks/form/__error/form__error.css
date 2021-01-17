@@ -7,3 +7,9 @@
   transition: opacity 0.3s linear;
   max-width: 45ch;
 }
+
+@media (max-width: 473px){
+  .form__error{
+    max-width: 30ch;
+  }
+}
