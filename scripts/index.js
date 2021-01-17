@@ -1,8 +1,9 @@
 //body__preload class to stop triggering transitions on page load
+/**
 window.addEventListener("load", function() {
   const preload=document.querySelector (".preload");
   preload.classList.remove('preload');
-});
+}); */
 
 //Modals
 const globalModal = document.querySelector(".modal_open");

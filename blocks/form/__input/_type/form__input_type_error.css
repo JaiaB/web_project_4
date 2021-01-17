@@ -1,0 +1,4 @@
+.form__input_type_error:invalid {
+  color: red;
+  border-bottom: 1px solid red;
+}

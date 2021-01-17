@@ -1,3 +1,5 @@
+@import url("./_type/form__input_type_error.css");
+
 .form__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -10,3 +12,8 @@
   margin-block-end: 0; /*this gets rid of user agent stylesheets*/
   margin-block-start: 0;  /*this gets rid of user agent stylesheets*/
 }
+
+.form__input:focus{
+  outline: none;
+}
+
