@@ -1,4 +1,4 @@
-@import url('./_visible/form__error_visible');
+@import url('./_visible/form__error_visible.css');
 
 .form__error {
   font-size: 12px;
