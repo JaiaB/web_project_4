@@ -1,69 +1,83 @@
-//show input error message 
-function showError(config, errorMessage, input){
-  const error = document.querySelector(`#${input.id}-error`)
-  error.textContent = errorMessage;
-  //console.log('errorMessage', errorMessage)
-  input.classList.add(config.inputErrorClass); //when error is active
-  error.classList.add(config.errorClass);
-}
-
-//hide input error message
-function hideError(config, input){
-  const error = document.querySelector(`#${input.id}-error`)
-  error.textContent = "";
-  input.classList.remove(config.inputErrorClass); //when error is active
-  error.classList.remove(config.errorClass);
-}
-
-//check input validity
-function checkInputValidity(config, input){
-  if(input.validity.valid){
-    //console.log("valid")
-    hideError(config, input)
-  }else{
-    //console.log("not valid")
-    showError(config, input.validationMessage, input)
+const config = {
+    formSelector: ".form",
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__button",
+    inactiveButtonClass: "form__button_disabled",
+    inputErrorClass: "form__input_type_error", //this is the class that should be added to input which is not valid at the moment
+    errorClass: "form__error_visible" //span error class
+  };
+  
+  //show error message and error input class when invalid
+  const showInputError = (formElement, inputElement, errorMessage) => {
+    //we need to find the error element message inside this function
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add(config.inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(config.inputErrorClass);
   }
-}
 
-function toggleButtonState(button, config, inputs){
-  const isValid = inputs.every(input => input.validity.valid)
-  if(isValid){
-    button.disabled = false;
-    button.classList.remove(config.inactiveButtonClass)
-  }else{
-    button.disabled = true;
-    button.classList.add(config.inactiveButtonClass)
+  //hideInputError--
+  const hideInputError = (formElement, inputElement) => {
+    //we need to find the error element message inside this function
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove(config.inputErrorClass);
+    errorElement.classList.remove(config.errorClass);
+    errorElement.textContent = "";
   }
-}
 
-//global enable validation
-function enableValidation(config) {
-  const allForms = [...document.querySelectorAll(config.formSelector)];
+  //check input validity, then we can call inside another function and add diff params
+  //isValid checks if the fields are valid
+  const isValid = (formElement, inputElement) => {
+    if(!inputElement.validity.valid){
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    }else{
+      hideInputError(formElement, inputElement);
+    }
+  }
 
-  allForms.forEach (form => {
-    form.addEventListener("submit", (evt) => {
-      evt.preventDefalult()
-    });
+  //checks for validity property of the inputs
+  const hasInvalidInput = (inputList) => {
+    return inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
+    })
+  }
+  
+  //works along isValid to determine whether or not to disable button
+  const toggleButtonState = (config, inputList, buttonElement) => {
+    if(hasInvalidInput(inputList)){
+      buttonElement.classList.add(config.inactiveButtonClass);
+      buttonElement.disabled = true;
+    }else{
+      buttonElement.classList.remove(config.inactiveButtonClass);
+      buttonElement.disabled = false;
+    }
+  }
 
-    const inputs = [...form.querySelectorAll(config.inputSelector)];
-    const button = form.querySelectorAll(config.submitButtonSelector);
-
-    inputs.forEach(input => {
-        input.addEventListener("input", () =>{
-        checkInputValidity(config, input)
-        toggleButtonState(button, config, inputs)
+//find all inputs inside form, the submit button inside form and we call the event listeners on inputs checking for their validity and submit button state toggle functionality
+  const setEventListeners = (config, formElement) => {
+    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+    const buttonElement = formElement.querySelector(config.submitButtonSelector);
+    //on first load will check for invalid inputs in order to disable button
+    //toggleButtonState(config, inputList, buttonElement); ///works but this is what im unsure of
+    //now we iterate over inputList
+    inputList.forEach((input) => {
+      input.addEventListener('input', () => {
+        //we call isValid and pass the form and element to be checked
+        isValid(formElement, input);
+        toggleButtonState(config, inputList, buttonElement);
       })
     })
-  })
-}
-
-enableValidation({
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__button",
-  inactiveButtonClass: ".form__button_disabled",
-  //need to make these two other classes
-  inputErrorClass: "form__input_type_error", //this is the class that should be added to input which is not valid at the moment
-  errorClass: "form__error_visible" //span error class
-});
+  }
+  
+  //this function adds handlers TO ALL FORMS
+  const enableValidation = (config) => {
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    formList.forEach((formElement) => {
+      formElement.addEventListener("submit", (evt) => {
+        evt.preventDefault();
+      });
+      setEventListeners(config, formElement);
+    })
+  }
+  //now we invoke the function
+  enableValidation(config);
