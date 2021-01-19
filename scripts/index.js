@@ -112,6 +112,21 @@ function likeCard(cardElement){
   cardElement.target.classList.toggle("cards__button_like_active");
 }
 
+//close modal when clicking overlay
+const closeModalOverlay = () => {
+  const allOpenModals = Array.from(document.querySelectorAll(".modal"));
+  allOpenModals.forEach((openModal) => {
+    openModal.addEventListener('click', (evt) => {
+      if(evt.target.classList.contains('modal_open')) {
+        toggleModal(evt.target);
+        //console.log("you're trying to close me")
+      };
+    });
+  });
+};
+
+closeModalOverlay();
+
 //Form Edit Profile 
 profileForm.addEventListener('submit', function (e) {
   e.preventDefault();

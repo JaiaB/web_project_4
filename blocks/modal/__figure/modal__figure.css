@@ -1,12 +1,12 @@
 .modal__figure{
   display: block;
-  margin-block-end: 1em;
+  /*margin-block-end: 1em;
   margin-block-start: 1em;
-  margin-inline-start: 20px !important;
+  margin-inline-start: 20px !important;*/
   margin-inline-end: 0px;
 }
 
-@media(max-width: 639px){
+/*@media(max-width: 639px){
   .modal__figure{
     margin-inline-start: 10px !important;
   }

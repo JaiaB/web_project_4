@@ -1,4 +1,6 @@
 .form__button_disabled {
+  /*color: #B8B8B8;
+  background: #EDEDED;*/
   opacity: 0.2;
   pointer-events: none;
   -webkit-user-select: none;
