@@ -1,4 +1,4 @@
-@import url("./_disabled/form__button_disabled.css");
+@import url("../__button/_disabled/form__button_disabled.css");
 
 .form__button {
   color: white;

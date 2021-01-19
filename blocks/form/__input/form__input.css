@@ -1,4 +1,4 @@
-@import url("./_type/form__input_type_error.css");
+@import url("../__input/_type/form__input_type_error.css");
 
 .form__input {
   border: none;
