@@ -6,13 +6,16 @@ Hi! My name is **Jaia** and I'm a UX/UI & Product Designer who loves Front End D
 This is an ongoing project in which I start adding interactivity with JavaScript.
 
 ### First Stage: Styling and Responsiveness
-**Flexbox** and **CSS Grid** were combined for the layout of the cards and the text inside them.
+**Flexbox** and **CSS Grid** were combined for the layout of the cards.
 **CSS** 
-The profile section was styled with **Flexbox** and **Media Queries** up to 320px for the behavior of the elements in the section.
-Buttons feature **CSS transitions** when hovering over them to change opacity. 
-The edit button is clickable and opens a form to edit the profile information on the page. 
-This webpage was originally designed for a 1280px resolution. It's responsive up to 320px. 
+The page is responsive up to 320px.
+
+Buttons feature **CSS transitions** when hovering over them to change opacity.
+
+The edit button is clickable and opens a form to edit the profile information on the page.
+
 **HTML** markup is semantic, CSS classes and root file are named and organized according to **BEM Methodology.**
+
 The form's behavior is controlled by **JavaScript**,  I used **textContent** property to return values on the form and **functions** to show the most recent changes on the form.
 
 ### Second Stage: Turning the JavaScript switch on!
