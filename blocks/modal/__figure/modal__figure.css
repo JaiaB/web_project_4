@@ -1,9 +1,10 @@
 .modal__figure{
   display: block;
+  margin-inline-end: 0px;
+  height: fit-content;
   /*margin-block-end: 1em;
   margin-block-start: 1em;
   margin-inline-start: 20px !important;*/
-  margin-inline-end: 0px;
 }
 
 /*@media(max-width: 639px){
