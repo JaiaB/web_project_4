@@ -2,13 +2,4 @@
   display: block;
   margin-inline-end: 0px;
   height: fit-content;
-  /*margin-block-end: 1em;
-  margin-block-start: 1em;
-  margin-inline-start: 20px !important;*/
-}
-
-/*@media(max-width: 639px){
-  .modal__figure{
-    margin-inline-start: 10px !important;
-  }
 }

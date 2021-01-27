@@ -2,7 +2,7 @@
 /* this class targets the error message that shows up*/
 .form__error {
   font-size: 12px;
-  color: red;  
+  color: red;
   position: absolute;
   transition: opacity 0.3s linear;
   max-width: 45ch;
