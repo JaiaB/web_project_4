@@ -40,23 +40,23 @@ const gallery = document.querySelector(".cards__gallery");
 function openModal(modal){
   modal.classList.add('modal_open');
   //console.log("trying to open modal");
+document.addEventListener("keydown", escKeyClose); //event listener for escKeyClose (close modal using Escape key)
 }
 
 //close modal
 function closeModal(modal){
   modal.classList.remove('modal_open');
   //console.log("trying to close modal")
+  document.removeEventListener("keydown", escKeyClose);
 }
 
 //close modal with escape key
-const escKeyClose = (evt) =>{
-  const modal = Array.from(document.querySelectorAll('.modal_open'));
-  modal.forEach((openModal)=> {
-    if(evt.key ==="Escape") {
-      //console.log("hi from escKeyClose");
-      closeModal(openModal);
-    }
-  })
+const escKeyClose = (evt) => {
+  const currentModal = document.querySelector(".modal_open");
+   if(evt.key ==="Escape" ) {
+    //console.log("hi from escKeyClose");
+    closeModal(currentModal);
+  }
 }
 
 //close modal when clicking overlay
@@ -67,7 +67,7 @@ const closeModalOverlay = () => {
       if(evt.target.classList.contains('modal_open')) {
         closeModal(evt.target);
         //console.log("you're trying to close clicking overlay")
-      };
+      }
     });
   });
 };
@@ -122,8 +122,6 @@ function addImageHandler(event){
 
 //this function inserts in the DOM the newCard's image using the values from the image handler
 function insertImage(data) {
-  //event listener for addImageHandler
-  createCardButton.addEventListener('click', addImageHandler);
   gallery.prepend(createCard(data));
 }
 
@@ -156,6 +154,9 @@ editProfileButton.addEventListener('click', () => {
 //profile modal close
 closeFormButton.addEventListener('click', ()=> closeModal(profileModal));
 
+//event listener for addImageHandler
+createCardButton.addEventListener('click', addImageHandler);
+
 //open add card modal
 addCardButton.addEventListener('click', ()=> openModal(newCardModal));
 
@@ -167,9 +168,6 @@ createCardButton.addEventListener('click', ()=> openModal(newCardModal));
 
 //close Image modal button
 closeImageModalButton.addEventListener('click', ()=> closeModal(imageModal));
-
-//event listener for escKeyClose (close modal using Escape key)
-document.addEventListener("keydown", escKeyClose);
 
 //this function calls the insertImage for every object in the list
 initialCards.forEach((data) => {
