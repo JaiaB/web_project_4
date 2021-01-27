@@ -4,6 +4,16 @@
 @import url('./_open-image/modal_open-image.css');
 @import url('./__figure/modal__figure.css');
 .modal {
-  opacity: 0;
   visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 90px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.55s ease-in-out!important;
 }
