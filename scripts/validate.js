@@ -58,7 +58,7 @@ const config = {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
     //on first load will check for invalid inputs in order to disable button
-    //toggleButtonState(config, inputList, buttonElement); ///works but this is what im unsure of
+    toggleButtonState(config, inputList, buttonElement); 
     //now we iterate over inputList
     inputList.forEach((input) => {
       input.addEventListener('input', () => {
@@ -69,7 +69,7 @@ const config = {
     })
   }
   
-  //this function adds handlers TO ALL FORMS
+  //this function adds  submit event handlers TO ALL FORMS
   const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((formElement) => {
