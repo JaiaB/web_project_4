@@ -1,12 +1,4 @@
-//body__preload class to stop triggering transitions on page load
-/**
-window.addEventListener("load", function() {
-  const preload=document.querySelector (".preload");
-  preload.classList.remove('preload');
-}); */
-
 //Modals
-const globalModal = document.querySelector(".modal_open");
 const profileModal = document.querySelector(".modal_open_edit");
 const newCardModal = document.querySelector(".modal_open_new-card");
 const imageModal = document.querySelector(".modal_open-image");
@@ -44,10 +36,43 @@ const cardTemplate = document.querySelector(".card-template").content.querySelec
 //gallery will select the element in the DOM where we want to place the dynamic data.
 const gallery = document.querySelector(".cards__gallery");
 
-//Toggle global modal
-function toggleModal(globalModal){
-  globalModal.classList.toggle('modal');
+//open modal
+function openModal(modal){
+  modal.classList.add('modal_open');
+  //console.log("trying to open modal");
 }
+
+//close modal
+function closeModal(modal){
+  modal.classList.remove('modal_open');
+  //console.log("trying to close modal")
+}
+
+//close modal with escape key
+const escKeyClose = (evt) =>{
+  const modal = Array.from(document.querySelectorAll('.modal_open'));
+  modal.forEach((openModal)=> {
+    if(evt.key ==="Escape") {
+      //console.log("hi from escKeyClose");
+      closeModal(openModal);
+    }
+  })
+}
+
+//close modal when clicking overlay
+const closeModalOverlay = () => {
+  const allOpenModals = Array.from(document.querySelectorAll(".modal"));
+  allOpenModals.forEach((openModal) => {
+    openModal.addEventListener('click', (evt) => {
+      if(evt.target.classList.contains('modal_open')) {
+        closeModal(evt.target);
+        //console.log("you're trying to close clicking overlay")
+      };
+    });
+  });
+};
+
+closeModalOverlay();
 
 //Refresh information in profile section
 function getUpdatedInfo() {
@@ -80,7 +105,7 @@ function createCard(data){
     modalImage.src = data.link;
     modalCaption.textContent = data.name;
     modalImage.alt = data.name;
-    toggleModal(imageModal);
+    openModal(imageModal);
   });
 
   return cardElement;
@@ -92,6 +117,7 @@ function addImageHandler(event){
   const newCardElement = createCard({name: newCardName.value, link: newCardImageLink.value});
   gallery.prepend(newCardElement);
   cardForm.reset();
+  closeModal(newCardModal); //exits create card modal on submitting
 }
 
 //this function inserts in the DOM the newCard's image using the values from the image handler
@@ -99,7 +125,6 @@ function insertImage(data) {
   //event listener for addImageHandler
   createCardButton.addEventListener('click', addImageHandler);
   gallery.prepend(createCard(data));
-  toggleModal(newCardModal);
 }
 
 //Delete card
@@ -112,52 +137,39 @@ function likeCard(cardElement){
   cardElement.target.classList.toggle("cards__button_like_active");
 }
 
-//close modal when clicking overlay
-const closeModalOverlay = () => {
-  const allOpenModals = Array.from(document.querySelectorAll(".modal"));
-  allOpenModals.forEach((openModal) => {
-    openModal.addEventListener('click', (evt) => {
-      if(evt.target.classList.contains('modal_open')) {
-        toggleModal(evt.target);
-        //console.log("you're trying to close me")
-      };
-    });
-  });
-};
-
-closeModalOverlay();
-
 //Form Edit Profile 
 profileForm.addEventListener('submit', function (e) {
   e.preventDefault();
   profileName.textContent = formName.value;
   profileDescription.textContent = formDescription.value;
-  toggleModal(profileModal);
+  closeModal(profileModal);
 });
 
 //Buttons functionality 
 
 //profile modal open & refresh profile info using arrow function
 editProfileButton.addEventListener('click', () => {
-  toggleModal(profileModal),  
+  openModal(profileModal);
   getUpdatedInfo()
- }
-);
+});
 
 //profile modal close
-closeFormButton.addEventListener('click', ()=> toggleModal(profileModal));
+closeFormButton.addEventListener('click', ()=> closeModal(profileModal));
 
 //open add card modal
-addCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+addCardButton.addEventListener('click', ()=> openModal(newCardModal));
 
 //close add card modal
-closeAddCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+closeAddCardButton.addEventListener('click', ()=> closeModal(newCardModal));
 
 //when clicking on "create" button, close the add card modal
-createCardButton.addEventListener('click', ()=> toggleModal(newCardModal));
+createCardButton.addEventListener('click', ()=> openModal(newCardModal));
 
 //close Image modal button
-closeImageModalButton.addEventListener('click', ()=> toggleModal(imageModal));
+closeImageModalButton.addEventListener('click', ()=> closeModal(imageModal));
+
+//event listener for escKeyClose (close modal using Escape key)
+document.addEventListener("keydown", escKeyClose);
 
 //this function calls the insertImage for every object in the list
 initialCards.forEach((data) => {
