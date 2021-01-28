@@ -146,7 +146,7 @@ cardForm.addEventListener('submit', (evt)=>{
   evt.preventDefault();
   addImageHandler();
   cardForm.reset();
-  createCardButton.setAttribute.disabled = true;
+  createCardButton.disabled = true;
   createCardButton.classList.add(config.inactiveButtonClass);
 })
 
