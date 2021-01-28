@@ -145,6 +145,7 @@ profileForm.addEventListener('submit', (evt)=> {
 cardForm.addEventListener('submit', (evt)=>{
   evt.preventDefault();
   addImageHandler();
+  cardForm.reset();
 })
 
 //Buttons functionality 
