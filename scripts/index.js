@@ -40,7 +40,7 @@ const gallery = document.querySelector(".cards__gallery");
 function openModal(modal){
   modal.classList.add('modal_open');
   //console.log("trying to open modal");
-document.addEventListener("keydown", escKeyClose); //event listener for escKeyClose (close modal using Escape key)
+  document.addEventListener("keydown", escKeyClose); //event listener for escKeyClose (close modal using Escape key)
 }
 
 //close modal
@@ -146,6 +146,8 @@ cardForm.addEventListener('submit', (evt)=>{
   evt.preventDefault();
   addImageHandler();
   cardForm.reset();
+  createCardButton.setAttribute.disabled = true;
+  createCardButton.classList.add(config.inactiveButtonClass);
 })
 
 //Buttons functionality 
