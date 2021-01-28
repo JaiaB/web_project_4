@@ -112,11 +112,9 @@ function createCard(data){
 }
 
 //for createCard object, we take the name and link from the initial cards object list and we refer to the values so they are retrieved from the inputs
-function addImageHandler(event){
-  event.preventDefault();
+function addImageHandler(){
   const newCardElement = createCard({name: newCardName.value, link: newCardImageLink.value});
   gallery.prepend(newCardElement);
-  cardForm.reset();
   closeModal(newCardModal); //exits create card modal on submitting
 }
 
@@ -136,12 +134,18 @@ function likeCard(cardElement){
 }
 
 //Form Edit Profile 
-profileForm.addEventListener('submit', function (e) {
-  e.preventDefault();
+profileForm.addEventListener('submit', (evt)=> {
+  evt.preventDefault();
   profileName.textContent = formName.value;
   profileDescription.textContent = formDescription.value;
   closeModal(profileModal);
 });
+
+//Form Add new card
+cardForm.addEventListener('submit', (evt)=>{
+  evt.preventDefault();
+  addImageHandler();
+})
 
 //Buttons functionality 
 
@@ -153,9 +157,6 @@ editProfileButton.addEventListener('click', () => {
 
 //profile modal close
 closeFormButton.addEventListener('click', ()=> closeModal(profileModal));
-
-//event listener for addImageHandler
-createCardButton.addEventListener('click', addImageHandler);
 
 //open add card modal
 addCardButton.addEventListener('click', ()=> openModal(newCardModal));
