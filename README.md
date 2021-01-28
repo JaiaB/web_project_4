@@ -31,6 +31,12 @@ The enlarged image is **adaptive** to the screen size
 
 The profile edit, add a card forms and the enlarged image have **smooth transitions** :sunglasses: nothing popping in and out suddenly.
 
+### Third Stage: Enabling form validation, Closing modals using Esc key and when clicking in the area surrounding the image
+If form fields are incorrect or incomplete, users won't be able to create a new card.
+
+Users are able to exit the form modals and image modals by clicking in the area surrounding modal/picture, or if they use the Esc key. 
+
+
 ### Next steps
 * Keep learning JavaScript!!
 
