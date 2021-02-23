@@ -17,34 +17,45 @@ This is an ongoing mini IG project in which I've been implementing semantic HTML
 
 **CSS TRANSITIONS** ✨
 - Opacity changes when hovering over buttons.
-- Smooth transitions when opening/closing forms and image modals.
 
 **BUTTONS** 🎯
 - Edit profile button opens a form to modify profile information.
-- Add card button opens a form to add a new image using a URL.
+- Add card button opens a form to add a new image.
 
 **JAVASCRIPT** ⚡️
 - Used to control the forms behavior.
 - I used **textContent** property to return values on the forms and show the most recent changes on them.
 
-### Second Stage: Turning the JavaScript switch on!
-Users can **add a new image card** with a link of their choosing from the web by clicking on the "Plus" button. Try it out! :white_check_mark:
+### Second Stage: Turning the JavaScript switch on! 🚀
 
-Cards can get **deleted** :x: 
+**JAVASCRIPT** ⚡️
+- Cards are rendered dynamically.
+- Implementation of event handlers.
+- Users can **add a new image card** with a URL of their choosing. Try it out! :white_check_mark:
+- Cards can get **deleted** :x: 
+- Cards can get **liked** :heart: and **unliked** :broken_heart:
+- Image too small? No problem amigo! I gotchu, :raised_hands: click on the image to enlarge. 
 
-Cards can get **liked** :heart: and **unliked** :broken_heart:
+**CSS TRANSITIONS** ✨
+- Smooth transitions were used when opening/closing image modals and forms. :sunglasses: nothing popping in and out suddenly.
 
-Image too small? No problem amigo! I gotchu, :raised_hands: click on the image to enlarge. 
+**RESPONSIVENESS AND STYLING** 💅
+- When opening an image modal, the image is **adaptive** to the screen size.
 
-The enlarged image is **adaptive** to the screen size
+### Third Stage: Adding more functionalities 👩‍💻
 
-The profile edit, add a card forms and the enlarged image have **smooth transitions** :sunglasses: nothing popping in and out suddenly.
+**JAVASCRIPT** ⚡️
+- Enabling form validation. 
+- Closing modals using Esc key.
+- Closing modals when clicking in the image overlay.
 
-### Third Stage: Enabling form validation, Closing modals using Esc key and when clicking in the area surrounding the image
-If form fields are incorrect or incomplete, users won't be able to create a new card.
+### Fourth Stage: Getting started with OOP 🥷
 
-Users are able to exit the form modals and image modals by clicking in the area surrounding modal/picture, or if they use the Esc key. 
-
+**ENCAPSULATION** ⚡️ 
+- Implementing the use of private and public methods and properties.
+- Implementing the use of imports/exports.
+- Class creation to separate dynamic markup from static markup.
+- Implementing "this" to reduce memory space.
 
 ### Next steps
 * Keep learning JavaScript!!
