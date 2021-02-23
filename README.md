@@ -7,23 +7,23 @@ This is an ongoing mini IG project in which I've been implementing semantic HTML
 
 ### First Stage: Styling and Responsiveness
 
-**HTML**
+**HTML** 🔧
 - Markup is semantic. 
 - CSS classes and root file are named and organized according to **BEM Methodology.**
 
-**RESPONSIVENESS AND STYLING**
+**RESPONSIVENESS AND STYLING** 💅
 - **Flexbox** and **CSS Grid** were combined for the layout of the cards.
 - The page is responsive up to 320px.
 
-**CSS TRANSITIONS**
+**CSS TRANSITIONS** ✨
 - Opacity changes when hovering over buttons.
 - Smooth transitions when opening/closing forms and image modals.
 
-**BUTTONS** 
+**BUTTONS** 🎯
 - Edit profile button opens a form to modify profile information.
 - Add card button opens a form to add a new image using a URL.
 
-**JAVASCRIPT**
+**JAVASCRIPT** ⚡️
 - Used to control the forms behavior.
 - I used **textContent** property to return values on the forms and show the most recent changes on them.
 
