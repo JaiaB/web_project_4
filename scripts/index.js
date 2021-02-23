@@ -1,6 +1,31 @@
-//Modals
+import FormValidator from './FormValidator.js';
+import Card from './Card.js';
+//shared elements btwn card.js and index.js
+import {
+  openModal,
+  closeModal,
+  escKeyClose,
+  initialCards,
+  config,
+} from "./utils.js";
+
+//modals used for the form validation variables below
 const profileModal = document.querySelector(".modal_open_edit");
-const newCardModal = document.querySelector(".modal_open_new-card");
+const newCardModal = document.querySelector(".modal_open_new-card"); 
+
+//find the form instance inside the modals above
+const editProfileForm = profileModal.querySelector(".form_profile");//profileModal = profileForm
+const addCardForm = newCardModal.querySelector(".form_new-card");//newCardModal = cardForm
+
+//the second parameter is the instance of the form we want
+const editFormValiator = new FormValidator(config,editProfileForm);
+const addFormValidator = new FormValidator(config, addCardForm);
+
+//after finding the corresponding form instances, we call enableValidation method
+editFormValiator.enableValidation();
+addFormValidator.enableValidation();
+
+//Modals
 const imageModal = document.querySelector(".modal_open-image");
 //elements used when opening image modal
 const modalImage = document.querySelector(".modal__image");
@@ -36,29 +61,6 @@ const cardTemplate = document.querySelector(".card-template").content.querySelec
 //gallery will select the element in the DOM where we want to place the dynamic data.
 const gallery = document.querySelector(".cards__gallery");
 
-//open modal
-function openModal(modal){
-  modal.classList.add('modal_open');
-  //console.log("trying to open modal");
-  document.addEventListener("keydown", escKeyClose); //event listener for escKeyClose (close modal using Escape key)
-}
-
-//close modal
-function closeModal(modal){
-  modal.classList.remove('modal_open');
-  //console.log("trying to close modal")
-  document.removeEventListener("keydown", escKeyClose);
-}
-
-//close modal with escape key
-const escKeyClose = (evt) => {
-  const currentModal = document.querySelector(".modal_open");
-   if(evt.key ==="Escape" ) {
-    //console.log("hi from escKeyClose");
-    closeModal(currentModal);
-  }
-}
-
 //close modal when clicking overlay
 const closeModalOverlay = () => {
   const allOpenModals = Array.from(document.querySelectorAll(".modal"));
@@ -66,7 +68,6 @@ const closeModalOverlay = () => {
     openModal.addEventListener('click', (evt) => {
       if(evt.target.classList.contains('modal_open')) {
         closeModal(evt.target);
-        //console.log("you're trying to close clicking overlay")
       }
     });
   });
@@ -96,40 +97,44 @@ function createCard(data){
 
   cardDeleteButton.addEventListener('click', () => {
       deleteCard(cardElement);
-      //console.log('card was deleted');
     });
 
   //open image modal when clicking on the image
-  cardImage.addEventListener('click', (event) => {
-    event.preventDefault()
-    modalImage.src = data.link;
-    modalCaption.textContent = data.name;
-    modalImage.alt = data.name;
-    openModal(imageModal);
-  });
+  cardImage.addEventListener('click', () => modalImageHandler(data));
 
   return cardElement;
 }
 
 //for createCard object, we take the name and link from the initial cards object list and we refer to the values so they are retrieved from the inputs
-function addImageHandler(){
+
+const addNewCardHandler = () => { //creates new card on submit
   const newCardElement = createCard({name: newCardName.value, link: newCardImageLink.value});
   gallery.prepend(newCardElement);
   closeModal(newCardModal); //exits create card modal on submitting
 }
 
+//modalImageHandler //shows the dynamic data when opening the modal image
+const modalImageHandler = (data) => {
+  modalImage.src = data.link;
+  modalCaption.textContent = data.name;
+  modalImage.alt = data.name;
+  openModal(imageModal);
+}
+
 //this function inserts in the DOM the newCard's image using the values from the image handler
-function insertImage(data) {
-  gallery.prepend(createCard(data));
+const insertImage = (data) => {
+  const card = new Card(data, '.card-template'); //here we are making sure to insert the new card instance
+  //gallery.prepend(createCard(data)); we dont need this anymore
+  gallery.prepend(card.generateCard()); //add to the gallery the instance of generateCard public method.
 }
 
 //Delete card
-function deleteCard(cardElement){
+const deleteCard = (cardElement)=> {
   gallery.removeChild(cardElement);
 }
 
 //Like card
-function likeCard(cardElement){
+const likeCard = (cardElement) => {
   cardElement.target.classList.toggle("cards__button_like_active");
 }
 
@@ -144,7 +149,7 @@ profileForm.addEventListener('submit', (evt)=> {
 //Form Add new card
 cardForm.addEventListener('submit', (evt)=>{
   evt.preventDefault();
-  addImageHandler();
+  addNewCardHandler();
   cardForm.reset();
   createCardButton.disabled = true;
   createCardButton.classList.add(config.inactiveButtonClass);
@@ -173,7 +178,7 @@ createCardButton.addEventListener('click', ()=> openModal(newCardModal));
 //close Image modal button
 closeImageModalButton.addEventListener('click', ()=> closeModal(imageModal));
 
-//this function calls the insertImage for every object in the list
+//this function calls the insertImage for every object in the list (render cards)
 initialCards.forEach((data) => {
   insertImage(data);
 });

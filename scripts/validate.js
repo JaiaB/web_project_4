@@ -1,11 +1,4 @@
-const config = {
-    formSelector: ".form",
-    inputSelector: ".form__input",
-    submitButtonSelector: ".form__button",
-    inactiveButtonClass: "form__button_disabled",
-    inputErrorClass: "form__input_type_error", //this is the class that should be added to input which is not valid at the moment
-    errorClass: "form__error_visible" //span error class
-  };
+import {config} from './utils.js';
   
   //show error message and error input class when invalid
   const showInputError = (formElement, inputElement, errorMessage) => {
