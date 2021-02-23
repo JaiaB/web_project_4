@@ -3,20 +3,29 @@
 
 Hi! My name is **Jaia** and I'm a UX/UI & Product Designer who loves Front End Development.
 
-This is an ongoing project in which I start adding interactivity with JavaScript.
+This is an ongoing mini IG project in which I've been implementing semantic HTML, responsive design, JavaScript and OOP principles.
 
 ### First Stage: Styling and Responsiveness
-**Flexbox** and **CSS Grid** were combined for the layout of the cards.
-**CSS** 
-The page is responsive up to 320px.
 
-Buttons feature **CSS transitions** when hovering over them to change opacity.
+**HTML**
+- Markup is semantic. 
+- CSS classes and root file are named and organized according to **BEM Methodology.**
 
-The edit button is clickable and opens a form to edit the profile information on the page.
+**RESPONSIVENESS AND STYLING**
+- **Flexbox** and **CSS Grid** were combined for the layout of the cards.
+- The page is responsive up to 320px.
 
-**HTML** markup is semantic, CSS classes and root file are named and organized according to **BEM Methodology.**
+**CSS TRANSITIONS**
+- Opacity changes when hovering over buttons.
+- Smooth transitions when opening/closing forms and image modals.
 
-The form's behavior is controlled by **JavaScript**,  I used **textContent** property to return values on the form and **functions** to show the most recent changes on the form.
+**BUTTONS** 
+- Edit profile button opens a form to modify profile information.
+- Add card button opens a form to add a new image using a URL.
+
+**JAVASCRIPT**
+- Used to control the forms behavior.
+- I used **textContent** property to return values on the forms and show the most recent changes on them.
 
 ### Second Stage: Turning the JavaScript switch on!
 Users can **add a new image card** with a link of their choosing from the web by clicking on the "Plus" button. Try it out! :white_check_mark:
