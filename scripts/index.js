@@ -77,30 +77,6 @@ function getUpdatedInfo() {
   formDescription.value = profileDescription.textContent;
 }
 
-function createCard(data){
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".cards__image");
-  const cardTitle = cardElement.querySelector(".cards__text");
-  const cardLikeButton = cardElement.querySelector(".cards__button_like_inactive");
-  const cardDeleteButton = cardElement.querySelector(".cards__button_delete");
-
-  //dynamic data that renders image and name of card
-  cardTitle.textContent = data.name;
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
-  
-  cardLikeButton.addEventListener('click', likeCard); 
-
-  cardDeleteButton.addEventListener('click', () => {
-      deleteCard(cardElement);
-    });
-
-  //open image modal when clicking on the image
-  cardImage.addEventListener('click', () => modalImageHandler(data));
-
-  return cardElement;
-}
-
 //for createCard object, we take the name and link from the initial cards object list and we refer to the values so they are retrieved from the inputs
 
 const addNewCardHandler = () => { //creates new card on submit
@@ -109,6 +85,7 @@ const addNewCardHandler = () => { //creates new card on submit
   closeModal(newCardModal); //exits create card modal on submitting
 }
 
+//when trying to get rid of this, on submit the card isn't created
 //modalImageHandler //shows the dynamic data when opening the modal image
 const modalImageHandler = (data) => {
   modalImage.src = data.link;
