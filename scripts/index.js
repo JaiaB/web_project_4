@@ -84,15 +84,6 @@ const addNewCardHandler = () => { //creates new card on submit
   closeModal(newCardModal); //exits create card modal on submitting
 }
 
-//when trying to get rid of this, on submit the card isn't created
-//modalImageHandler //shows the dynamic data when opening the modal image
-const modalImageHandler = (data) => {
-  modalImage.src = data.link;
-  modalCaption.textContent = data.name;
-  modalImage.alt = data.name;
-  openModal(imageModal);
-}
-
 //this function inserts in the DOM the newCard's image using the values from the image handler
 const insertImage = (data) => {
   const card = new Card(data, '.card-template'); //here we are making sure to insert the new card instance
