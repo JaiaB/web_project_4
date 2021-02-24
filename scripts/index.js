@@ -4,9 +4,11 @@ import Card from './Card.js';
 import {
   openModal,
   closeModal,
-  escKeyClose,
   initialCards,
   config,
+  imageModal,
+  modalImage,
+  modalCaption,
 } from "./utils.js";
 
 //modals used for the form validation variables below
@@ -24,12 +26,6 @@ const addFormValidator = new FormValidator(config, addCardForm);
 //after finding the corresponding form instances, we call enableValidation method
 editFormValiator.enableValidation();
 addFormValidator.enableValidation();
-
-//Modals
-const imageModal = document.querySelector(".modal_open-image");
-//elements used when opening image modal
-const modalImage = document.querySelector(".modal__image");
-const modalCaption = document.querySelector(".modal__caption");
 
 //Buttons
 const editProfileButton = document.querySelector(".button_edit");

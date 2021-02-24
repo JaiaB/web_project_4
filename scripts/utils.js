@@ -1,21 +1,27 @@
-export function openModal(modal){
+//Image modals
+const imageModal = document.querySelector(".modal_open-image");
+//elements used when opening image modal
+const modalImage = document.querySelector(".modal__image");
+const modalCaption = document.querySelector(".modal__caption");
+
+function openModal(modal){
   modal.classList.add('modal_open');
   document.addEventListener("keydown", escKeyClose); 
 }
 
-export function closeModal(modal){
+function closeModal(modal){
   modal.classList.remove('modal_open');
   document.removeEventListener("keydown", escKeyClose);
 }
 
-export function escKeyClose(evt){
+function escKeyClose(evt){
   const currentModal = document.querySelector(".modal_open");
    if(evt.key ==="Escape" ) {
     closeModal(currentModal);
   }
 }
 
-export const initialCards = [ 
+const initialCards = [ 
   { 
     name: "Yosemite Valley", 
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg" 
@@ -43,11 +49,22 @@ export const initialCards = [
   } 
 ]; 
 
-export const config = {
+const config = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
   inactiveButtonClass: "form__button_disabled",
   inputErrorClass: "form__input_type_error", //error as user types
   errorClass: "form__error_visible" //span error class
+};
+
+export{
+  imageModal,
+  modalImage,
+  modalCaption,
+  openModal,
+  closeModal,
+  escKeyClose,
+  initialCards,
+  config,
 };

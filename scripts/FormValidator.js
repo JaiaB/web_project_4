@@ -35,7 +35,7 @@ class FormValidator{
           this._hideInputError(formElement, inputElement);
         }
       }
-    } //need to check this one by myself
+    } 
   
     _hasInvalidInput(){
       //body
@@ -45,7 +45,7 @@ class FormValidator{
         return !inputElement.validity.valid;
         })
       }
-    } //need to double check this one by myself
+    } 
   
     _toggleButtonState(){
       //body
@@ -60,7 +60,7 @@ class FormValidator{
           buttonElement.disabled = false;
         }
       }
-    }//need to check this one by myself
+    }
   
     _setEventListeners(){
       //body
