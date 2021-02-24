@@ -1,24 +1,15 @@
 //shared elements btwn card.js and index.js 
 import {
-    openModal,
-    closeModal,
-    escKeyClose,
-    initialCards,
-  } from "./utils.js";
-  
-  //modalImageHandler //shows the dynamic data when opening the modal image
-  const modalImageHandler = (data) => {
-    modalImage.src = data.link;
-    modalCaption.textContent = data.name;
-    modalImage.alt = data.name;
-    openModal(imageModal);
-  }
+  openModal,
+  imageModal,
+  modalImage,
+  modalCaption,
+} from "./utils.js";
   
   class Card {
-    constructor(data, templateSelector){
-      //body
+    constructor(data, templateSelector) {
       this._link = data.link; //image data
-      this._name = data.link; //name data
+      this._name = data.name; //name data
       this._templateSelector = templateSelector; //the template element (not the instance)
     }
   
@@ -28,34 +19,34 @@ import {
       return cardTemplate;
     }
   
-    //we need to add the functions that are called in the event listeners and make them private methods too
-    _likeCard(){
-      //body
+    _likeCard(evt) { 
+      evt.target.classList.toggle("cards__button_like_active");
     }
   
     _deleteCard(){
-      //body
+     this._cardElement.remove();
+     this._cardElement = null;
     }
   
-    _modalImageHandler(){
-      //body
+    _modalImageHandler(){//shows the dynamic data when opening the modal image
+      modalImage.src = this._link;
+      modalCaption.textContent = this._name;
+      modalImage.alt = this._name;
+      openModal(imageModal);
     }
   
-    _setEventListeners(){
-      //we add the needed variables of the elements found in the card so that the event listeners will function as expected (the image and the two buttons to like and delete)
-  
+    _setEventListeners(){  
       const cardImage = this._cardElement.querySelector(".cards__image");
       const cardLikeButton = this._cardElement.querySelector(".cards__button_like_inactive");
       const cardDeleteButton = this._cardElement.querySelector(".cards__button_delete");
   
-      //like card button event listener
       cardLikeButton.addEventListener('click', this._likeCard); 
-      //delete card button event listener
+      
       cardDeleteButton.addEventListener('click', () => {
         this._deleteCard(this._cardElement);
       });
       //handler to open image modal when clicking on the image.
-      cardImage.addEventListener('click', () => this._modalImageHandler);
+      cardImage.addEventListener('click', () => this._modalImageHandler());
   
     }
   
