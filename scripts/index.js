@@ -53,7 +53,6 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 //Card Template Section used variables
-const cardTemplate = document.querySelector(".card-template").content.querySelector(".cards__gallery-item");
 //gallery will select the element in the DOM where we want to place the dynamic data.
 const gallery = document.querySelector(".cards__gallery");
 
@@ -99,16 +98,6 @@ const insertImage = (data) => {
   const card = new Card(data, '.card-template'); //here we are making sure to insert the new card instance
   //gallery.prepend(createCard(data)); we dont need this anymore
   gallery.prepend(card.generateCard()); //add to the gallery the instance of generateCard public method.
-}
-
-//Delete card
-const deleteCard = (cardElement)=> {
-  gallery.removeChild(cardElement);
-}
-
-//Like card
-const likeCard = (cardElement) => {
-  cardElement.target.classList.toggle("cards__button_like_active");
 }
 
 //Form Edit Profile 
