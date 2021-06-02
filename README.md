@@ -1,5 +1,5 @@
 # Around the U.S
-### A responsive webpage using **Flexbox**,  **CSS Grid**,  **Media Queries** and JavaScript.
+### A web-app built from scratch.
 
 Hi! My name is **Jaia** and I'm a UX/UI & Product Designer who loves Front End Development.
 
