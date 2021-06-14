@@ -7,8 +7,6 @@ import {
   initialCards,
   config,
   imageModal,
-  modalImage,
-  modalCaption,
 } from "./utils.js";
 
 //modals used for the form validation variables below
@@ -76,10 +74,11 @@ function getUpdatedInfo() {
   formDescription.value = profileDescription.textContent;
 }
 
-//for createCard object, we take the name and link from the initial cards object list and we refer to the values so they are retrieved from the inputs
-
+//createCard is the equivalent of the public method generateCard
+//need to fix this in order to generate the new card on submit
 const addNewCardHandler = () => { //creates new card on submit
   const newCardElement = createCard({name: newCardName.value, link: newCardImageLink.value});
+
   gallery.prepend(newCardElement);
   closeModal(newCardModal); //exits create card modal on submitting
 }
@@ -88,7 +87,7 @@ const addNewCardHandler = () => { //creates new card on submit
 const insertImage = (data) => {
   const card = new Card(data, '.card-template'); //here we are making sure to insert the new card instance
   //gallery.prepend(createCard(data)); we dont need this anymore
-  gallery.prepend(card.generateCard()); //add to the gallery the instance of generateCard public method.
+  gallery.prepend(card.generateCard()); //add new card instance using generateCard public method from Card class.
 }
 
 //Form Edit Profile 

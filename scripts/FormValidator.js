@@ -1,70 +1,81 @@
-class FormValidator {
-  constructor(config,formElement) {
-    this._config = config; //replaced individual config references
-    this._form = formElement; //reference to real form in the document. Not instances
+class FormValidator{
+  constructor(config, form){
+    this._inputSelector = config.inputSelector;
+    this._submitButtonSelector = config.submitButtonSelector;
+    this._inactiveButtonClass = config.inactiveButtonClass;
+    this._inputErrorClass = config.inputErrorClass;
+    this._errorClass = config.errorClass;
+    //reference to the real form in our document. result of document.querySelector. Not an instance of the formElement.
+    this._formElement = form;
   }
 
-  _showInputError(errorMessage, input) {
-    const errorElement = this._form.querySelector(`#${input.id}-error`);
-   errorElement.textContent = errorMessage;
-   input.classList.add(this._config.inputErrorClass);
-   errorElement.classList.add(this._config.errorClass);
+  _showInputError(inputElement, errorMessage){
+    //body
+    const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add(this._inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._errorClass);
   }
 
-  _hideInputError(input) {
-    const errorElement = this._form.querySelector(`#${input.id}-error`);
-    // remove error message
-    input.classList.remove(this._config.inputErrorClass);
-    errorElement.classList.remove(this._config.errorClass);
+  _hideInputError(inputElement){
+    //body
+    const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove(this._inputErrorClass);
+    errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
-    
   }
 
-  _isValid(input) { //check input validity
-  if (input.validity.valid) {
-    this._hideInputError(input);
-  } else {
-    this._showInputError(input.validationMessage, input);
+ //only left inputElement as arg
+  _checkInputValidity(inputElement){
+    //body
+    if(!inputElement.validity.valid){
+      this._showInputError(inputElement,  inputElement.validationMessage);
+    }else{
+      this._hideInputError(inputElement);
+    }
+  } 
+
+  _hasInvalidInput(inputList){
+    //body
+    return inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
+    })
+  } 
+
+  _toggleButtonState(inputList, buttonElement){
+    //removed variables, access the private method from above
+    if(this._hasInvalidInput(inputList)){
+      buttonElement.classList.add(this._inactiveButtonClass);
+      buttonElement.disabled = true;
+    }else{
+      buttonElement.classList.remove(this._inactiveButtonClass);
+      buttonElement.disabled = false;
+    }
   }
-}
 
-  _toggleButtonState(inputList,buttonElement) {
-  //tell me if there are invalid input elements
-  //switched here as variable instead of private method
-  const hasInvalidInput = inputList.some(inputElement => !inputElement.validity.valid);
+  _setEventListeners(){
+    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
 
-  if (hasInvalidInput) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add(this._config.inactiveButtonClass);
-  } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove(this._config.inactiveButtonClass);
-  }
-}
+    this._toggleButtonState(inputList, buttonElement);
 
-  _setEventListeners() {
-    const inputList = Array.from(this._form.querySelectorAll(this._config.inputSelector));
-
-  const buttonElement = this._form.querySelector(this._config.submitButtonSelector);
-  
-  //on loading check for invalid inputs to disable button
-  this._toggleButtonState(inputList, buttonElement);
-
-    inputList.forEach((inputElement) => {
-      //we call the functions to check for validity and to disable button
-      inputElement.addEventListener('input', () => {
-        this._isValid(inputElement);
+    inputList.forEach((inputElement)=>{
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement);
         this._toggleButtonState(inputList, buttonElement);
       });
     });
+
+    //switched this event listener here to stay consistent
+    this._formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
   }
 
-  enableValidation() {
-    //replaced formElement with this._
-    this._form.addEventListener("submit", evt => evt.preventDefault());
-
-    this._setEventListeners(); //we got rid of args because we are referencing to this._form
+  enableValidation(){
+    //calling  the private method above
+    this._setEventListeners(); // we got rid of arguments because we are referencing to this._formElement
   }
-}
+};
 
 export default FormValidator;
