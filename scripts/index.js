@@ -76,8 +76,8 @@ function getUpdatedInfo() {
 
 //createCard is the equivalent of the public method generateCard
 //need to fix this in order to generate the new card on submit
-const addNewCardHandler = () => { //creates new card on submit
-  const newCardElement = createCard({name: newCardName.value, link: newCardImageLink.value});
+const addNewCardHandler = () => { //creates new card on submit, use the new keyword replacing the deleted createCard function
+  const newCardElement = new Card({name: newCardName.value, link: newCardImageLink.value}, '.card-template').generateCard();
 
   gallery.prepend(newCardElement);
   closeModal(newCardModal); //exits create card modal on submitting
