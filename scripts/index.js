@@ -103,7 +103,6 @@ cardForm.addEventListener('submit', (evt)=>{
   evt.preventDefault();
   addNewCardHandler();
   cardForm.reset();
-  createCardButton.disabled = true;
   createCardButton.classList.add(config.inactiveButtonClass);
 })
 
