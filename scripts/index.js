@@ -51,6 +51,7 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 //Card Template Section used variables
+
 //gallery will select the element in the DOM where we want to place the dynamic data.
 const gallery = document.querySelector(".cards__gallery");
 
@@ -74,20 +75,26 @@ function getUpdatedInfo() {
   formDescription.value = profileDescription.textContent;
 }
 
-//createCard is the equivalent of the public method generateCard
-//need to fix this in order to generate the new card on submit
-const addNewCardHandler = () => { //creates new card on submit, use the new keyword replacing the deleted createCard function
-  const newCardElement = new Card({name: newCardName.value, link: newCardImageLink.value}, '.card-template').generateCard();
+//createCard is the equivalent of the public method generateCard, all cards are now created using the Card class
+//we need to still keep this variable
+const createCard = (data) => { 
+  const newCardElement = new Card(data, ".card-template"); 
+  return newCardElement.generateCard();  
+}
 
-  gallery.prepend(newCardElement);
+//for createCard object, we take the name and link from the initial cards object list and we refer to the values so they are retrieved from the inputs
+
+const addNewCardHandler = () => { //creates new card on submit, inserts it to DOM
+  const newCard = createCard({name: newCardName.value, link: newCardImageLink.value}, '.card-template'); //call the createCard function. will use the returned card template with the new info
+  gallery.prepend(newCard); 
   closeModal(newCardModal); //exits create card modal on submitting
 }
 
 //this function inserts in the DOM the newCard's image using the values from the image handler
 const insertImage = (data) => {
   const card = new Card(data, '.card-template'); //here we are making sure to insert the new card instance
-  //gallery.prepend(createCard(data)); we dont need this anymore
-  gallery.prepend(card.generateCard()); //add new card instance using generateCard public method from Card class.
+  //gallery.prepend(createCard(data)); we dont need this here anymore (since project 6 we moved it)
+  gallery.prepend(card.generateCard()); //add to the gallery the instance of generateCard public method.
 }
 
 //Form Edit Profile 
@@ -104,7 +111,7 @@ cardForm.addEventListener('submit', (evt)=>{
   addNewCardHandler();
   cardForm.reset();
   createCardButton.classList.add(config.inactiveButtonClass);
-})
+});
 
 //Buttons functionality 
 
