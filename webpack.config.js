@@ -1,26 +1,39 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
+  devtool: 'inline-source-map',
   entry: {
-    main: './scripts/index.js'
+    main: './scripts/index.js',
   },
   output: {
     filename: 'main.js',
-    "path": path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: ""
   },
-  devtool: 'cheap-module-source-map',
+  target: ['web', 'es5'],
+  stats: {children: true},
+  mode: 'development',
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+    compress: 'true',
+    port: 8080,
+    open: true
+  },
+  //devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use:  'babel-loader',
         exclude: '/node_modules/'
       },
       {
         test: /\.css$/,
-        loader: [
+        type: 'asset/resource',
+        use: [
           MiniCssExtractPlugin.loader,
         { 
           loader: 'css-loader', 
@@ -29,18 +42,19 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|svg|png|jpg)$/,
-        loader: 'file-loader'
+        use: 'file-loader'
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        use: 'html-loader'
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: './index.html'
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin(),
   ]
-}
+};
