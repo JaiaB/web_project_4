@@ -1,4 +1,4 @@
-import config from '..utils/constants.js';
+import config from './utils.js';
 export default class Popup{
     constructor(popupSelector){
         this._popupSelector = document.querySelectorAll(popupSelector);
