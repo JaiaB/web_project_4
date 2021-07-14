@@ -1,0 +1,40 @@
+{
+  "name": "web_project_4",
+  "version": "1.0.0",
+  "description": "Hi! My name is **Jaia** and I'm a UX/UI & Product Designer who loves Front End Development.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaiaB/web_project_4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaiaB/web_project_4/issues"
+  },
+  "homepage": "https://github.com/JaiaB/web_project_4#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.6",
+    "cssnano": "^5.0.6",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "postcss-loader": "^6.1.1",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.15.2"
+  }
+}
