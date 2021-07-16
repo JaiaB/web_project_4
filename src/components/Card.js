@@ -4,7 +4,7 @@ import {
   imageModal,
   modalImage,
   modalCaption,
-} from "./utils.js";
+} from "../utils/constants.js";
   
   class Card {
     constructor(data, templateSelector) {

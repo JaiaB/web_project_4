@@ -1,6 +1,6 @@
-import "../pages/index.css";
-import FormValidator from './FormValidator.js';
-import Card from './Card.js';
+import "./pages/index.css";
+import FormValidator from './components/FormValidator.js';
+import Card from './components/Card.js';
 //shared elements btwn card.js and index.js
 import {
   openModal,
@@ -8,7 +8,7 @@ import {
   initialCards,
   config,
   imageModal,
-} from "./utils.js";
+} from "./utils/constants.js";
 
 //modals used for the form validation variables below
 const profileModal = document.querySelector(".modal_open_edit");

@@ -6,7 +6,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    main: './scripts/index.js',
+    main: './src/index.js',
   },
   output: {
     filename: 'main.js',
@@ -52,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './src/index.html'
     }),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
