@@ -1,6 +1,9 @@
 import "./pages/index.css";
 import FormValidator from './components/FormValidator.js';
 import Card from './components/Card.js';
+import Section from './components/Section.js';
+import PopupWithImage from './components/PopupWithImage';
+import UserInfo from './components/UserInfo.js';
 //shared elements btwn card.js and index.js
 import {
   openModal,
@@ -18,6 +21,7 @@ const newCardModal = document.querySelector(".modal_open_new-card");
 const editProfileForm = profileModal.querySelector(".form_profile");//profileModal = profileForm
 const addCardForm = newCardModal.querySelector(".form_new-card");//newCardModal = cardForm
 
+// Form Validator Objects
 //the second parameter is the instance of the form we want
 const editFormValiator = new FormValidator(config,editProfileForm);
 const addFormValidator = new FormValidator(config, addCardForm);
