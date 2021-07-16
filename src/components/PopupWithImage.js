@@ -1,4 +1,4 @@
-import Popup from './Popup';
+import Popup from './Popup.js';
 
 export default class PopupWithImage extends Popup{
     open(link, caption) {
