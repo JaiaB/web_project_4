@@ -22,39 +22,35 @@ module.exports = {
     port: 8080,
     open: true
   },
-  //devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
         test: /\.js$/,
-        use:  'babel-loader',
-        exclude: '/node_modules/'
+        loader: "babel-loader",
+        exclude: "/node_modules/"
       },
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-        { 
-          loader: 'css-loader', 
-          options: { importLoaders: 1 } 
-        }, 'postcss-loader']
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1 },
+          },
+          "postcss-loader",
+        ]
       },
       {
-        test: /\.(woff|woff2|svg|png|jpg)$/,
-        use: 'file-loader',
-        type: 'asset/resource',
-      },
-      {
-        test: /\.html$/,
-        use: 'html-loader'
+        test: /.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: "asset/resource"
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: "./src/index.html"
     }),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
-  ]
+  ],
 };
