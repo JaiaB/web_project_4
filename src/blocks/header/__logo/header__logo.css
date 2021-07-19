@@ -3,6 +3,9 @@
   height: 33px;
   color: white;
   margin-bottom: 41px;
+  background: url('../../../images/logo-white.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media(max-width: 639px) {
