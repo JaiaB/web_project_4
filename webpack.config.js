@@ -32,7 +32,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        type: 'asset/resource',
         use: [
           MiniCssExtractPlugin.loader,
         { 
@@ -42,7 +41,8 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|svg|png|jpg)$/,
-        use: 'file-loader'
+        use: 'file-loader',
+        type: 'asset/resource',
       },
       {
         test: /\.html$/,
