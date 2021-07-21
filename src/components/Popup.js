@@ -1,9 +1,8 @@
-import config from '../utils/constants.js';
 export default class Popup{
     constructor(popupSelector){
-        this._popupSelector = document.querySelectorAll(popupSelector);
+        this._popupSelector = document.querySelector(popupSelector);
+        //bind prevents the handler from reaching the global scope and breaking
         this._handleEscClose = this._handleEscClose.bind(this);
-        this._closeButton = document.querySelector(".modal__close-button");
     }
     open(){
         this._popupSelector.classList.add("modal_open");
@@ -13,7 +12,7 @@ export default class Popup{
         this._popupSelector.classList.remove("modal_open");
         document.removeEventListener("keydown", this._handleEscClose);
     }
-    _handleEscClose(){
+    _handleEscClose(evt){
         if(evt.key === "Escape"){
             this.close();
         }
