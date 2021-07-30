@@ -8,6 +8,7 @@
   padding: 0;
   cursor: pointer;
   transition: opacity linear 0.2s;
+  outline: none;
 }
 
 .button:hover {
