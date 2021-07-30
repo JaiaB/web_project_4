@@ -35,7 +35,7 @@ export default class Card {
 
     //handler to render image and name when clicking on the image modal.
     this._cardElement.querySelector(".cards__image").addEventListener('click', () =>{
-      this._handleCardClick(this._name, this._link);
+      this._handleCardClick;
     } );
   }
   
