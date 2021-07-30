@@ -7,7 +7,10 @@ export default class Card {
   }
   
   _getCardTemplate(){
-    const cardTemplate = document.querySelector(this._templateSelector).content.querySelector(".cards__gallery-item").cloneNode(true);
+    const cardTemplate = document
+    .querySelector(this._templateSelector)
+    .content.querySelector(".cards__gallery-item")
+    .cloneNode(true);
 
     return cardTemplate;
   }
@@ -22,8 +25,8 @@ export default class Card {
   }
   
   _setEventListeners(){  
-    this._cardElement.querySelector(".cards__button_like_inactive").addEventListener('click', ()=>{
-      this._likeCard
+    this._cardElement.querySelector(".cards__button_like_inactive").addEventListener('click', (evt)=>{
+      this._likeCard(evt);
     });
 
     this._cardElement.querySelector(".cards__button_delete").addEventListener('click', () => {
