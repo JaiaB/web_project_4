@@ -21,7 +21,7 @@ function escKeyClose(evt){
   }
 }
 
-const initialCards = [ 
+export const initialCards = [ 
   { 
     name: "Yosemite Valley", 
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg" 
@@ -49,7 +49,7 @@ const initialCards = [
   } 
 ]; 
 
-const config = {
+export const config = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
@@ -58,13 +58,26 @@ const config = {
   errorClass: "form__error_visible" //span error class
 };
 
-export{
-  imageModal,
-  modalImage,
-  modalCaption,
-  openModal,
-  closeModal,
-  escKeyClose,
-  initialCards,
-  config,
+//Form variables
+const form = document.querySelector(".form");
+//modals used for the form validation variables below
+const profileModal = document.querySelector(".modal_open_edit");
+const newCardModal = document.querySelector(".modal_open_new-card"); 
+
+export const profileConfig = {
+  editProfileButton: ".button_edit",
+  editProfileForm: profileModal.querySelector(".form_profile"),//profileModal = profileForm
+  profileName : ".profile__name",
+  profileDescription: ".profile__description",
+  //Form Inputs to edit Profile 
+  formName : form.querySelector(".form__input_type_name"),
+  formDescription : form.querySelector(".form__input_type_description")
+};
+
+export const cardConfig = {
+  addCardButton: ".button_add",
+  addCardForm : newCardModal.querySelector(".form_new-card"),//newCardModal = cardForm
+  //Form inputs to create new card
+  newCardName: ".form__input_type_card-tile",
+  newCardImageLink: ".form__input_type_url",
 };
